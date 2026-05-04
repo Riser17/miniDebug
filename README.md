@@ -54,5 +54,6 @@
   - **Targeting**: Uses `xcrun simctl` to identify the active simulator and pass it to the React Native CLI.
   - **Reloading**: Uses `osascript` to tell `System Events` to simulate a keyboard shortcut in the Simulator application.                                                                                      
                                                                                                                                                                                                                
-  ## 📜 License                                                                                                                                                                                                
-  MIT License
+  ## 🎆 ScreenShot
+  <img width="1411" height="910" alt="image" src="https://github.com/user-attachments/assets/3a29b74e-ebf7-4d60-ada4-d97b7471277c" />
+
