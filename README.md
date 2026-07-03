@@ -1,3 +1,4 @@
+<img width="1537" height="780" alt="Screenshot 2026-07-03 at 2 21 20 PM" src="https://github.com/user-attachments/assets/f318c120-8446-4f28-81ba-16f02cc3cfe1" />
 # 🚀 miniDebug
  
 `miniDebug` is a comprehensive macOS developer cockpit for React Native. It transforms the tedious process of managing simulators, emulators, and terminal commands into a streamlined GUI experience. Instead of juggling multiple terminal tabs and Xcode/Android Studio windows, `miniDebug` centralizes your entire development loop into one lightweight utility.
@@ -102,6 +103,8 @@ This intercepts `console.error` at the same point React Native's own LogBox does
 - **Heuristic Source Search**: When symbolication isn't available, falls back to targeted `grep`/`find` over the project source tree — preferring a file whose name matches the failing symbol (the actual definition) over any file that merely references it.
 - **Automation**: Leverages `osascript` (AppleScript) to trigger native macOS system events for simulator control.
                                                                                                                                                                                                                                                                                
-  ## 🎆 Screenshot  
- <img width="703" height="637" alt="image" src="https://github.com/user-attachments/assets/a987a2ac-f79f-4b8b-af09-c0c8f5d35952" />
+  ## 🎆 Screenshot
+  
+ <img width="1537" height="780" alt="Screenshot 2026-07-03 at 2 21 20 PM" src="https://github.com/user-attachments/assets/dd6d110d-0ded-4a34-845f-206dc9df18fe" />
+
 
