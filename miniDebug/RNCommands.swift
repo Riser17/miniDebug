@@ -6,9 +6,14 @@ import Foundation
                                                                                                                                                                                                                                                                                
       var runIOS: String { "npx react-native run-ios --no-packager" }
       var runAndroid: String { "npx react-native run-android --no-packager" }
-                                                                                                                                                                                                                                                                               
+
       var logAndroid: String { "\(adbPath) logcat" }
-                                                                                                                                                                                                                                                                               
+      // Catches all React Native JS logs (console.*, redbox errors) via the
+      // actual subsystem, plus native fatal crashes.
+      var logIOS: String {
+          "xcrun simctl spawn booted log stream --style compact --level debug --predicate 'subsystem == \"com.facebook.react.log\" OR eventMessage CONTAINS[cd] \"FATAL EXCEPTION\" OR eventMessage CONTAINS[cd] \"Fatal Exception\"'"
+      }
+
       var reloadIOS: String {
            "osascript -e 'tell application \"Simulator\" to activate' -e 'tell application \"System Events\" to keystroke \"r\" using command down'"
        }
@@ -18,7 +23,7 @@ import Foundation
           "osascript -e 'tell application \"Simulator\" to activate' -e 'tell application \"System Events\" to keystroke \"d\" using command down'"
       }
       var inspectAndroid: String { "\(adbPath) shell input keyevent 82" }
-      var devtools: String { "open http://localhost:8081/debugger-ui" }
+      var devtools: String { "open -a 'Google Chrome' 'chrome://inspect' && open 'http://localhost:8081'" }
       var deepCleanIOS: String { "rm -rf node_modules && npm install && cd ios && xcodebuild clean all" }
       var deepCleanAndroid: String { "rm -rf node_modules && npm install && cd android && ./gradlew clean" }
       var podUpdate: String { "cd ios && pod install" }
