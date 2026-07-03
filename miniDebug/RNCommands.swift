@@ -7,7 +7,12 @@ import Foundation
       var runIOS: String { "npx react-native run-ios --no-packager" }
       var runAndroid: String { "npx react-native run-android --no-packager" }
 
-      var logAndroid: String { "\(adbPath) logcat" }
+      // Filtered to React Native's own JS console tag (ReactNativeJS, all levels)
+      // and Java-side fatal crashes (AndroidRuntime errors only). Everything else
+      // (kernel boot messages, unrelated system processes, other apps) is silenced
+      // via "*:S" - otherwise generic error-detection regexes false-positive on
+      // unrelated system log noise.
+      var logAndroid: String { "\(adbPath) logcat -c && \(adbPath) logcat ReactNativeJS:V AndroidRuntime:E \"*:S\"" }
       // Catches all React Native JS logs (console.*, redbox errors) via the
       // actual subsystem, plus native fatal crashes.
       var logIOS: String {
